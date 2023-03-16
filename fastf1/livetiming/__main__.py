@@ -16,7 +16,7 @@ def convert(args):
     data, ec = messages_from_raw(messages)
     with open(args.output, 'w') as outfile:
         for elem in data:
-            outfile.write(str(elem)+'\n')
+            outfile.write(str(elem) + '\n')
     print(f"Completed with {ec} error(s)")
 
 

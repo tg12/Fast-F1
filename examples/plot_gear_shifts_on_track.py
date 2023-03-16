@@ -41,7 +41,7 @@ gear = tel['nGear'].to_numpy().astype(float)
 # to full integer values of the colormap
 
 cmap = cm.get_cmap('Paired')
-lc_comp = LineCollection(segments, norm=plt.Normalize(1, cmap.N+1), cmap=cmap)
+lc_comp = LineCollection(segments, norm=plt.Normalize(1, cmap.N + 1), cmap=cmap)
 lc_comp.set_array(gear)
 lc_comp.set_linewidth(4)
 # sphinx_gallery_defer_figures

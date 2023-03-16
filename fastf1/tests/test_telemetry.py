@@ -112,7 +112,7 @@ def test_slice_by_time(reference_laps_data):
     ensure_data_type(CAR_DATA_DTYPES, slice1)
 
     dt = pandas.Timedelta(100, 'ms')
-    slice2 = test_data.slice_by_time(t0-dt, t1+dt, interpolate_edges=True)
+    slice2 = test_data.slice_by_time(t0 - dt, t1 + dt, interpolate_edges=True)
     assert slice2['SessionTime'].iloc[0] == t0 - dt
     assert slice2['SessionTime'].iloc[-1] == t1 + dt
     assert len(slice2) == 1003
@@ -207,7 +207,7 @@ def test_merging_10_hz(reference_laps_data):
 
     # assert correct number of samples for duration at 10 Hz within +-1 sample
     n_samples_target = round(test_car_data['Time'].iloc[-1].total_seconds() * 10, 0)
-    assert len(merged) in (n_samples_target-1, n_samples_target, n_samples_target+1)
+    assert len(merged) in (n_samples_target - 1, n_samples_target, n_samples_target + 1)
 
     # no values should be nan; everything should be interpolated
     assert not pandas.isnull(merged.to_numpy()).any()
@@ -323,8 +323,8 @@ def create_sample_car_data():
     dates = pandas.date_range(t0, t1, freq='261 ms')
     session_times = dates - t0
     times = session_times
-    t = numpy.linspace(0, len(dates)*0.261, len(dates))
-    speed = 80 + numpy.sqrt(320*t)
+    t = numpy.linspace(0, len(dates) * 0.261, len(dates))
+    speed = 80 + numpy.sqrt(320 * t)
 
     tel = fastf1.core.Telemetry({
         'Time': times, 'SessionTime': session_times, 'Date': dates,
@@ -362,7 +362,7 @@ def test_add_relative_distance():
     # check that the results make sense
     assert 'RelativeDistance' in car_data.columns
     assert car_data['RelativeDistance'].max() == \
-           car_data['RelativeDistance'].iloc[-1]
+        car_data['RelativeDistance'].iloc[-1]
     assert car_data['RelativeDistance'].max() == 1.0
     assert car_data['RelativeDistance'].min() == 0.0
 
@@ -382,6 +382,6 @@ def test_add_relative_distance():
     # check that the results make sense
     assert 'RelativeDistance' in car_data.columns
     assert car_data['RelativeDistance'].max() == \
-           car_data['RelativeDistance'].iloc[-1]
+        car_data['RelativeDistance'].iloc[-1]
     assert car_data['RelativeDistance'].max() == 1.0
     assert car_data['RelativeDistance'].min() == 0.0

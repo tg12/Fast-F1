@@ -49,6 +49,7 @@ class LiveTimingData:
             is currently very slow for large files. Therefore, it can be
             disabled if this may cause problems.)
     """
+
     def __init__(self, *files, remove_duplicates=True):
         # file names
         self.files = files

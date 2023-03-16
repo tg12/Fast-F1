@@ -41,6 +41,7 @@ class LogOutputHandle:
         stream: An instance of :class:`io.StreamIO` that is used as stream
             target by the stream handler.
     """
+
     def __init__(self, stream_handler, stream):
         self.stream_handler = stream_handler
         self.stream = stream

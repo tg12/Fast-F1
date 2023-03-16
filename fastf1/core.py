@@ -734,7 +734,7 @@ class Telemetry(pd.DataFrame):
         # statuses.
         for index in range(events.shape[0] - 1):
             curr_e = events[index]
-            next_e = events[index+1]
+            next_e = events[index + 1]
 
             dd_shape = d[(d['Date'] < next_e) & (d['Date'] >= curr_e)].shape[0]
             ts.extend([statuses[index]] * dd_shape)
@@ -909,7 +909,7 @@ class Telemetry(pd.DataFrame):
                     relevant_laps = drv_laps[
                         (drv_laps['LapNumber'] >= (lap_n_before - pad_before))
                         & (drv_laps['LapNumber'] <= lap_n_after + pad_after)
-                        ]
+                    ]
                 except IndexError:
                     break
 
@@ -1435,10 +1435,10 @@ class Session:
             # after comparison
             next_statuses = self.session_status[
                 self.session_status['Time'] > ref_time
-                ]
+            ]
             prev_statuses = self.session_status[
                 self.session_status['Time'] <= ref_time
-                ]
+            ]
 
             if ((not prev_statuses.empty)
                     and (prev_statuses['Status'] == 'Finished').any()):
@@ -2594,7 +2594,7 @@ class Laps(pd.DataFrame):
         laps = [None, None, None]
         for i in range(len(split_times) - 1):
             laps.append(self[(self['Time'] > split_times[i])
-                             & (self['Time'] < split_times[i+1])])
+                             & (self['Time'] < split_times[i + 1])])
         return laps
 
     def iterlaps(self, require: Optional[Iterable] = None) \

@@ -293,7 +293,7 @@ def get_event(
     schedule = get_event_schedule(year=year, include_testing=False,
                                   force_ergast=force_ergast)
 
-    if type(gp) is str:
+    if isinstance(gp, str):
         event = schedule.get_event_by_name(gp, strict_search=strict_search)
     else:
         event = schedule.get_event_by_round(gp)

@@ -160,7 +160,7 @@ def test_lap_get_weather_data(reference_laps_data):
     # should use last known value
     lap = fastf1.core.Lap(index=fastest.index, dtype='object')
     lap.session = session
-    lap['Time'] = datetime.timedelta(days=1/24*3)
+    lap['Time'] = datetime.timedelta(days=1 / 24 * 3)
     lap['LapStartTime'] = lap['Time'] - datetime.timedelta(seconds=30)
     wd_last = lap.get_weather_data()
     pd.testing.assert_series_equal(wd_last, session.weather_data.iloc[-1])

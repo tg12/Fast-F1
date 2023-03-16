@@ -64,7 +64,7 @@ def plot_lap_time_integrity(laps_data, suffix=''):
         for driver in drivers:
             i_max = len(laps_data[laps_data.DriverResult == driver])
             for i in range(1, i_max):
-                delta = (laps_data.iloc[i].Date - laps_data.iloc[i].LapTime - laps_data.iloc[i-1].Date).total_seconds()
+                delta = (laps_data.iloc[i].Date - laps_data.iloc[i].LapTime - laps_data.iloc[i - 1].Date).total_seconds()
                 deltas.append(delta)
                 ref.append(n)
                 n += 1
@@ -72,7 +72,7 @@ def plot_lap_time_integrity(laps_data, suffix=''):
         for driver in drivers:
             i_max = len(laps_data[laps_data.DriverResult == driver])
             for i in range(1, i_max):
-                delta = (laps_data.iloc[i].Time - laps_data.iloc[i].LapTime - laps_data.iloc[i-1].Time).total_seconds()
+                delta = (laps_data.iloc[i].Time - laps_data.iloc[i].LapTime - laps_data.iloc[i - 1].Time).total_seconds()
                 deltas.append(delta)
                 ref.append(n)
                 n += 1
@@ -191,11 +191,11 @@ def all_sectors_result_plots(result, track, suffix, workdir=None):
     # delta between test value and mean result
     dx = list()
     for test, tres in zip(r['tx'], r['mean_x1']):
-        dx.append(test-tres)
+        dx.append(test - tres)
 
     dy = list()
     for test, tres in zip(r['ty'], r['mean_y1']):
-        dy.append(test-tres)
+        dy.append(test - tres)
 
     plt.figure(figsize=(15, 8))
     plt.suptitle('Difference In - Out Coordinate | {}'.format(suffix))
